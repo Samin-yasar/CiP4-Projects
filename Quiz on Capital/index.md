@@ -38,4 +38,4 @@ This program's full functionality, including the saving of result data to `.txt`
 
 ## **✍️ Author**
 
-This game was developed by [Samin Yasar](https://samin-yasar.github.io) as a fun project to practice Python programming concepts especially for Code in Place IDE. Check [Code in Place](https://codeinplace.stanford.edu/cip4/share/zea1uKJ6DiPl21uMD7ei)
+This game was developed by [Samin Yasar](https://samin-yasar.dev) as a fun project to practice Python programming concepts especially for Code in Place IDE. Check [Code in Place](https://codeinplace.stanford.edu/cip4/share/zea1uKJ6DiPl21uMD7ei)

@@ -76,7 +76,7 @@ The game is **best of 5 rounds** — the first to reach 5 wins is crowned the ch
 
 ## 👩‍💻 Author
 
-Made with 💙 by [Samin Yasar](https://samin-yasar.github.io) 
+Made with 💙 by [Samin Yasar](https://samin-yasar.dev) 
 Inspired by the spirit of **[Code in Place](https://codeinplace.stanford.edu/cip4/share/BpYSSgwP79h3S7xRg2Mc)** ✨
 
 ---

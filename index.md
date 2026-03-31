@@ -11,10 +11,10 @@ Code in Place offers Stanford's flagship course CS106A, online for free, with th
 
 Below is a list of all documented projects. Click on the link for each project to view its dedicated documentation and learn more about it.
 
-* [**Project 1: Quiz Game on Capitals**](https://samin-yasar.github.io/CiP4-Projects/Quiz%20on%20Capital): A fun and interactive quiz game that tests your knowledge of world capitals.  
-* [**Project 2: 1D Quantum Equation**](https://samin-yasar.github.io/CiP4-Projects/Schr%C3%B6dinger-Equation/): A program that simulates the one-dimensional time-dependent Schrödinger equation to demonstrate quantum phenomena.  
-* [**Project 3: Overkillr**](https://samin-yasar.github.io/CiP4-Projects/Overkillr): A text-processing tool that replaces words with their more "glorified" and "intensified" versions.
-* [**Project 4: Rock, Paper, & Scissors**](https://samin-yasar.github.io/CiP4-Projects/Rock,%20Paper,%20&%20Scissors/): Traditional rock, paper & scissors game with excitement. 
+* [**Project 1: Quiz Game on Capitals**](https://cip4.samin-yasar.dev/Quiz%20on%20Capital): A fun and interactive quiz game that tests your knowledge of world capitals.  
+* [**Project 2: 1D Quantum Equation**](https://cip4.samin-yasar.dev/Schr%C3%B6dinger-Equation/): A program that simulates the one-dimensional time-dependent Schrödinger equation to demonstrate quantum phenomena.  
+* [**Project 3: Overkillr**](https://cip4.samin-yasar.dev/Overkillr): A text-processing tool that replaces words with their more "glorified" and "intensified" versions.
+* [**Project 4: Rock, Paper, & Scissors**](https://cip4.samin-yasar.dev/Rock,%20Paper,%20&%20Scissors/): Traditional rock, paper & scissors game with excitement. 
 
 ## **How to Navigate**
 
