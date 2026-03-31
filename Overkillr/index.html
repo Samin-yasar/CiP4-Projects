@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Overkillr - Text Processing Tool - Code in Place Project</title>
+    <meta name="description" content="A text-processing tool that replaces words with their more 'glorified' and 'intensified' versions.">
+    <meta name="keywords" content="Python, Text Processing, Natural Language, Code in Place, String Manipulation">
+    <meta name="author" content="Samin Yasar">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #ffffff;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            text-align: center;
+            padding: 40px 0;
+            background: #f8f9fa;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        h1 {
+            font-size: 2.5em;
+            color: #8C1515;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        
+        .subtitle {
+            font-size: 1.2em;
+            color: #666;
+            margin-bottom: 20px;
+        }
+        
+        .nav-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+        
+        .nav-btn {
+            display: inline-block;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+        
+        .home-btn {
+            background: #6c757d;
+            color: white;
+        }
+        
+        .home-btn:hover {
+            background: #5a6268;
+            transform: translateY(-2px);
+        }
+        
+        .source-btn {
+            background: #24292e;
+            color: white;
+        }
+        
+        .source-btn:hover {
+            background: #1a1e22;
+            transform: translateY(-2px);
+        }
+        
+        main {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+        
+        .section {
+            margin-bottom: 40px;
+        }
+        
+        h2 {
+            color: #8C1515;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            border-bottom: 3px solid #8C1515;
+            padding-bottom: 10px;
+        }
+        
+        h3 {
+            color: #333;
+            font-size: 1.4em;
+            margin-bottom: 15px;
+            margin-top: 25px;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .feature-card {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #8C1515;
+        }
+        
+        .feature-title {
+            font-weight: 600;
+            color: #8C1515;
+            margin-bottom: 10px;
+        }
+        
+        .code-block {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            font-family: 'Courier New', monospace;
+            overflow-x: auto;
+        }
+        
+        .command {
+            background: #e9ecef;
+            padding: 15px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            margin: 10px 0;
+            border-left: 4px solid #007bff;
+        }
+        
+        .example-box {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        .example-input {
+            background: #fff3cd;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
+            font-style: italic;
+        }
+        
+        .example-output {
+            background: #d4edda;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
+            font-weight: 600;
+        }
+        
+        .word-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: #f8f9fa;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .word-table th,
+        .word-table td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #dee2e6;
+        }
+        
+        .word-table th {
+            background: #8C1515;
+            color: white;
+            font-weight: 600;
+        }
+        
+        .word-table tr:hover {
+            background: #e9ecef;
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 30px;
+            background: #f8f9fa;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .footer-links {
+            margin-top: 20px;
+        }
+        
+        .footer-links a {
+            color: #8C1515;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: #6B0F1A;
+            text-decoration: underline;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+            
+            .nav-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            main {
+                padding: 20px;
+            }
+            
+            header {
+                padding: 30px 20px;
+            }
+        }
+.github-logo {
+            width: 20px;
+            height: 20px;
+            vertical-align: middle;
+            margin-right: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Overkillr</h1>
+            <p class="subtitle">A text-processing tool that transforms ordinary text into glorified content</p>
+            <div class="nav-buttons">
+                <a href="../" class="nav-btn home-btn">Back to Projects</a>
+                <a href="https://github.com/samin-yasar/CiP4-Projects/tree/main/Overkillr" target="_blank" class="nav-btn source-btn">
+                    <svg class="github-logo" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                    </svg>
+                    View Source Code
+                </a>
+            </div>
+        </header>
+        
+        <main>
+            <section class="section">
+                <h2>Features</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-title">Word Replacement</div>
+                        <p>Automatically replaces common words with their intensified versions using a comprehensive dictionary.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-title">Dictionary Based</div>
+                        <p>Uses a structured dictionary to map words to their glorified alternatives.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-title">Real-time Processing</div>
+                        <p>Processes text input instantly and displays the transformed results.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-title">Case Preservation</div>
+                        <p>Maintains the original capitalization of words during replacement.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-title">Multiple Input Methods</div>
+                        <p>Supports both direct text input and file processing capabilities.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-title">Error Handling</div>
+                        <p>Robust error handling for invalid inputs and missing words.</p>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="section">
+                <h2>How to Use</h2>
+                
+                <h3>Prerequisites</h3>
+                <p>To run this tool, you need to have Python 3 installed on your system.</p>
+                
+                <h3>Running the Program</h3>
+                <div class="command">python main.py</div>
+                
+                <h3>Example Usage</h3>
+                <div class="example-box">
+                    <h4>Input Text:</h4>
+                    <div class="example-input">"This is a good project that works well."</div>
+                    
+                    <h4>Output Text:</h4>
+                    <div class="example-output">"This is a PHENOMENAL project that works MAGNIFICENTLY."</div>
+                </div>
+            </section>
+            
+            <section class="section">
+                <h2>Word Transformation Examples</h2>
+                <p>Here are some examples of how Overkillr transforms common words:</p>
+                
+                <table class="word-table">
+                    <thead>
+                        <tr>
+                            <th>Original Word</th>
+                            <th>Overkillr Version</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>good</td>
+                            <td>PHENOMENAL</td>
+                        </tr>
+                        <tr>
+                            <td>great</td>
+                            <td>EXTRAORDINARY</td>
+                        </tr>
+                        <tr>
+                            <td>bad</td>
+                            <td>CATASTROPHIC</td>
+                        </tr>
+                        <tr>
+                            <td>big</td>
+                            <td>COLOSSAL</td>
+                        </tr>
+                        <tr>
+                            <td>small</td>
+                            <td>MINUSCULE</td>
+                        </tr>
+                        <tr>
+                            <td>fast</td>
+                            <td>LIGHTNING-FAST</td>
+                        </tr>
+                        <tr>
+                            <td>slow</td>
+                            <td>GLACIAL</td>
+                        </tr>
+                        <tr>
+                            <td>easy</td>
+                            <td>EFFORTLESS</td>
+                        </tr>
+                        <tr>
+                            <td>hard</td>
+                            <td>HERCULEAN</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+            
+            <section class="section">
+                <h2>Technical Implementation</h2>
+                
+                <h3>Core Components</h3>
+                <ul>
+                    <li><strong>Dictionary Mapping:</strong> A comprehensive dictionary maps original words to their glorified versions</li>
+                    <li><strong>String Processing:</strong> Efficient string parsing and replacement algorithms</li>
+                    <li><strong>Case Handling:</strong> Preserves original capitalization during word replacement</li>
+                    <li><strong>User Interface:</strong> Clean command-line interface for easy interaction</li>
+                </ul>
+                
+                <h3>Key Python Concepts Demonstrated</h3>
+                <ul>
+                    <li>Dictionary data structures and operations</li>
+                    <li>String manipulation and processing</li>
+                    <li>Regular expressions for word matching</li>
+                    <li>User input handling and validation</li>
+                    <li>File I/O operations (if implemented)</li>
+                </ul>
+            </section>
+            
+            <section class="section">
+                <h2>Educational Value</h2>
+                <p>This project is an excellent demonstration of fundamental Python programming concepts:</p>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-title">Data Structures</div>
+                        <p>Effective use of dictionaries for word mapping and lookup.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-title">String Manipulation</div>
+                        <p>Advanced string processing techniques and pattern matching.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-title">Problem Solving</div>
+                        <p>Breaking down text processing into manageable components.</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+        
+        <footer class="footer">
+            <p><strong>Author</strong></p>
+            <p>This tool was developed by <a href="https://samin-yasar.github.io" target="_blank">Samin Yasar</a> as a creative project to explore text processing and string manipulation in Python.</p>
+            <p>Built as part of the <a href="https://codeinplace.stanford.edu" target="_blank">Code in Place</a> learning experience.</p>
+            
+            <div class="footer-links">
+                <a href="../">Back to Projects</a>
+                <a href="https://github.com/samin-yasar/CiP4-Projects/tree/main/Overkillr" target="_blank">Source Code</a>
+                <a href="https://samin-yasar.github.io" target="_blank">Portfolio</a>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

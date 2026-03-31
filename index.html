@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code in Place Projects - Stanford CS106A</title>
+    <meta name="description" content="A collection of projects completed during Stanford's Code in Place v4 course, showcasing Python programming skills and computational thinking.">
+    <meta name="keywords" content="Stanford, CS106A, Code in Place, Python, Programming, Projects">
+    <meta name="author" content="Samin Yasar">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://samin-yasar.github.io/CiP4-Projects/">
+    <meta property="og:title" content="Code in Place Projects - Stanford CS106A">
+    <meta property="og:description" content="A collection of projects completed during Stanford's Code in Place v4 course">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://samin-yasar.github.io/CiP4-Projects/">
+    <meta property="twitter:title" content="Code in Place Projects - Stanford CS106A">
+    <meta property="twitter:description" content="A collection of projects completed during Stanford's Code in Place v4 course">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #ffffff;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            text-align: center;
+            padding: 60px 0;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        h1 {
+            font-size: 3em;
+            color: #8C1515;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        
+        .subtitle {
+            font-size: 1.2em;
+            color: #666;
+            margin-bottom: 30px;
+        }
+        
+        .stanford-badge {
+            display: inline-block;
+            background: #8C1515;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin: 10px;
+        }
+        
+        .stanford-badge:hover {
+            background: #6B0F1A;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(140, 21, 21, 0.3);
+        }
+        
+        main {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            margin-bottom: 40px;
+        }
+        
+        .about-section {
+            margin-bottom: 50px;
+        }
+        
+        h2 {
+            color: #8C1515;
+            font-size: 2em;
+            margin-bottom: 20px;
+            border-bottom: 3px solid #8C1515;
+            padding-bottom: 10px;
+        }
+        
+        .about-content {
+            font-size: 1.1em;
+            line-height: 1.8;
+            color: #444;
+        }
+        
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .project-card {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border-left: 5px solid #8C1515;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .project-title {
+            font-size: 1.3em;
+            color: #8C1515;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        
+        .project-description {
+            color: #666;
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+        
+        .project-link {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .project-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+        
+        .navigation-section {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 12px;
+            margin-top: 40px;
+        }
+        
+        .navigation-section h3 {
+            color: #8C1515;
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .footer p {
+            color: #666;
+            margin-bottom: 10px;
+        }
+        
+        .footer-links {
+            margin-top: 20px;
+        }
+        
+        .footer-links a {
+            color: #8C1515;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: #6B0F1A;
+            text-decoration: underline;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            main {
+                padding: 20px;
+            }
+            
+            header {
+                padding: 40px 20px;
+            }
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.8s ease-in;
+        }
+        
+        .github-logo {
+            width: 20px;
+            height: 20px;
+            vertical-align: middle;
+            margin-right: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="fade-in">
+            <h1>Code in Place Projects</h1>
+            <p class="subtitle">Stanford University CS106A - Programming Methodology</p>
+            <a href="https://codeinplace.stanford.edu" target="_blank" class="stanford-badge">
+                Visit Code in Place
+            </a>
+            <a href="https://online.stanford.edu/courses/soe-ycs0001-programming-methodology" target="_blank" class="stanford-badge">
+                Stanford CS106A
+            </a>
+        </header>
+        
+        <main class="fade-in">
+            <section class="about-section">
+                <h2>About Code in Place</h2>
+                <div class="about-content">
+                    <p>Code in Place offers Stanford's flagship course CS106A, online for free, with the support from thousands of teachers. CS106A is one of the most popular courses at Stanford University, taken by almost 1,600 students every year. It has been developed over the last 30 years by an amazing team, including Nick Parlante, Eric Roberts and more.</p>
+                    <br>
+                    <p>The course teaches the fundamentals of computer programming using the widely-used Python programming language. This course is for everyone from humanists, social scientists, to hardcore engineers.</p>
+                </div>
+            </section>
+            
+            <section>
+                <h2>Project Documentation</h2>
+                <p>Below is a collection of all documented projects completed during the Code in Place v4 course. Each project folder contains its source code and detailed documentation.</p>
+                
+                <div class="projects-grid">
+                    <div class="project-card fade-in">
+                        <h3 class="project-title">Quiz Game on Capitals</h3>
+                        <p class="project-description">A fun and interactive quiz game that tests your knowledge of world capitals. Built with Python to demonstrate conditional logic and user input handling.</p>
+                        <div style="margin-top: 15px;">
+                            <a href="Quiz%20on%20Capital/" class="project-link" style="margin-right: 10px;">
+                                View Documentation
+                            </a>
+                            <a href="https://github.com/samin-yasar/CiP4-Projects/tree/main/Quiz%20on%20Capital" target="_blank" class="project-link" style="background: #24292e;">
+                                <svg class="github-logo" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                                </svg>
+                                View Source Code
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="project-card fade-in">
+                        <h3 class="project-title">1D Quantum Equation</h3>
+                        <p class="project-description">A program that simulates the one-dimensional time-dependent Schrödinger equation to demonstrate quantum phenomena. Showcases advanced mathematical modeling and visualization.</p>
+                        <div style="margin-top: 15px;">
+                            <a href="Schr%C3%B6dinger-Equation/" class="project-link" style="margin-right: 10px;">
+                                View Documentation
+                            </a>
+                            <a href="https://github.com/samin-yasar/CiP4-Projects/tree/main/Schr%C3%B6dinger-Equation" target="_blank" class="project-link" style="background: #24292e;">
+                                <svg class="github-logo" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                                </svg>
+                                View Source Code
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="project-card fade-in">
+                        <h3 class="project-title">Overkillr</h3>
+                        <p class="project-description">A text-processing tool that replaces words with their more "glorified" and "intensified" versions. Demonstrates string manipulation and dictionary usage in Python.</p>
+                        <div style="margin-top: 15px;">
+                            <a href="Overkillr/" class="project-link" style="margin-right: 10px;">
+                                View Documentation
+                            </a>
+                            <a href="https://github.com/samin-yasar/CiP4-Projects/tree/main/Overkillr" target="_blank" class="project-link" style="background: #24292e;">
+                                <svg class="github-logo" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                                </svg>
+                                View Source Code
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="project-card fade-in">
+                        <h3 class="project-title">Rock, Paper, & Scissors</h3>
+                        <p class="project-description">Traditional rock, paper & scissors game with excitement. Features random computer moves, score tracking, and an engaging user interface.</p>
+                        <div style="margin-top: 15px;">
+                            <a href="Rock,%20Paper,%20&%20Scissors/" class="project-link" style="margin-right: 10px;">
+                                View Documentation
+                            </a>
+                            <a href="https://github.com/samin-yasar/CiP4-Projects/tree/main/Rock,%20Paper,%20&%20Scissors" target="_blank" class="project-link" style="background: #24292e;">
+                                <svg class="github-logo" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                                </svg>
+                                View Source Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="navigation-section">
+                <h3>How to Navigate</h3>
+                <p>To view the documentation for a specific project, simply click on the corresponding "View Documentation" button above. This will take you to that project's dedicated documentation page, which contains all the details about the project's purpose, functionality, and how to run it.</p>
+            </section>
+        </main>
+        
+        <footer class="footer fade-in">
+            <p><strong>Thank you for visiting!</strong> Feel free to explore the projects and their code.</p>
+            <p>This repository serves as a showcase of my learning journey and a record of the computational concepts explored during Code in Place v4.</p>
+            <div class="footer-links">
+                <a href="https://github.com/samin-yasar/CiP4-Projects" target="_blank">GitHub Repository</a>
+                <a href="https://samin-yasar.github.io" target="_blank">Portfolio</a>
+                <a href="mailto:samin.yasar@example.com">Contact</a>
+            </div>
+        </footer>
+    </div>
+    
+    <script>
+        // Add smooth scrolling and fade-in animations
+        document.addEventListener('DOMContentLoaded', function() {
+            // Fade in elements on scroll
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+            
+            // Observe all cards
+            document.querySelectorAll('.project-card').forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = 'all 0.6s ease';
+                observer.observe(card);
+            });
+            
+            // Add hover effects to project cards
+            document.querySelectorAll('.project-card').forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-5px) scale(1.02)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0) scale(1)';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
